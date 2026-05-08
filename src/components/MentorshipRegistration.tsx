@@ -17,12 +17,33 @@ export default function MentorshipRegistration() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call to send data to email/backend
-    // In a real app, you would fetch('/api/mentorship', { method: 'POST', body: JSON.stringify(formData) })
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    navigate('/success');
+    try {
+      // Send email using Resend API
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer re_cHBULQ3i_KPjYf2cVCpYC8QNAtd5Lx3nW`
+        },
+        body: JSON.stringify({
+          from: 'Mentorship <onboarding@resend.dev>',
+          to: formData.email, // Ganti dengan email admin jika ingin notifikasi ke admin
+          subject: 'Pendaftaran Mentorship Baru',
+          html: `
+            <h2>Pendaftaran Mentorship Baru</h2>
+            <p><strong>Nama:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Tipe Bimbingan:</strong> ${formData.type}</p>
+            <p><strong>Tujuan:</strong> ${formData.goal}</p>
+          `
+        })
+      });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+    } finally {
+      setIsSubmitting(false);
+      navigate('/success');
+    }
   };
 
   return (
