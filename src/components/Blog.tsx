@@ -27,8 +27,8 @@ export default function Blog() {
     <Section id="blog" label="04 / Wawasan & Blog">
       <div className="flex flex-col border-t border-brand-border">
         {posts.map((post, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="group flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-brand-border hover:bg-white/[0.02] px-4 -mx-4 transition-colors cursor-pointer"
           >
             <div className="flex flex-col gap-2 mb-4 md:mb-0">
@@ -41,7 +41,7 @@ export default function Blog() {
                 {post.title}
               </h3>
             </div>
-            
+
             <div className="flex items-center gap-8">
               <span className="hidden lg:block text-[10px] font-mono text-gray-600">{post.readTime}</span>
               <div className="w-12 h-12 rounded-full border border-brand-border flex items-center justify-center group-hover:bg-brand-accent group-hover:text-brand-bg transition-all duration-300">
@@ -51,7 +51,7 @@ export default function Blog() {
           </div>
         ))}
       </div>
-      
+
       <div className="mt-12 text-center">
         <button className="text-sm font-mono uppercase tracking-[0.3em] text-gray-500 hover:text-brand-accent transition-colors">
           LIHAT SEMUA PENGETAHUAN →

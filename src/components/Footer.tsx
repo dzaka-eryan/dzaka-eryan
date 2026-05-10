@@ -15,10 +15,10 @@ export default function Footer() {
               Membangun produk digital performa tinggi dan membimbing generasi engineer berikutnya. Tersedia untuk konsultasi dan bimbingan privat.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-400 hover:text-brand-accent transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-brand-accent transition-colors"><Linkedin size={20} /></a>
+              <a href="https://github.com/dzaka-eryan" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-accent transition-colors"><Github size={20} /></a>
+              <a href="https://id.linkedin.com/in/dzaka-eryan-377166104" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-accent transition-colors"><Linkedin size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-brand-accent transition-colors"><Twitter size={20} /></a>
-              <a href="mailto:contact@example.com" className="text-gray-400 hover:text-brand-accent transition-colors"><Mail size={20} /></a>
+              <a href="mailto:dzakaeryanseptianto@gmail.com" className="text-gray-400 hover:text-brand-accent transition-colors"><Mail size={20} /></a>
             </div>
           </div>
 

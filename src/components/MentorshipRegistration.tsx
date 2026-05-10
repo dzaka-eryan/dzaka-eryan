@@ -18,8 +18,8 @@ export default function MentorshipRegistration() {
     setIsSubmitting(true);
 
     try {
-      // Send email using Resend API
-      await fetch('https://api.resend.com/emails', {
+      // Send email using Resend API (via local proxy to avoid CORS)
+      const response = await fetch('/api/resend/emails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export default function MentorshipRegistration() {
         },
         body: JSON.stringify({
           from: 'Mentorship <onboarding@resend.dev>',
-          to: formData.email, // Ganti dengan email admin jika ingin notifikasi ke admin
+          to: 'dzakaeryanseptianto@gmail.com',
           subject: 'Pendaftaran Mentorship Baru',
           html: `
             <h2>Pendaftaran Mentorship Baru</h2>
@@ -38,11 +38,18 @@ export default function MentorshipRegistration() {
           `
         })
       });
-    } catch (error) {
-      console.error('Failed to send email:', error);
-    } finally {
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Gagal mengirim email');
+      }
+
       setIsSubmitting(false);
       navigate('/success');
+    } catch (error: any) {
+      console.error('Failed to send email:', error);
+      alert('Gagal mengirim email: ' + error.message);
+      setIsSubmitting(false);
     }
   };
 
