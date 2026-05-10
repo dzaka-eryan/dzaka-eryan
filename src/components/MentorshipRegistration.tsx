@@ -40,8 +40,15 @@ export default function MentorshipRegistration() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Gagal mengirim email');
+        let errorMessage = 'Gagal mengirim email.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (parseError) {
+          // If response is not JSON (e.g., 404 HTML page on GitHub Pages)
+          errorMessage = 'API Proxy tidak ditemukan. Pengiriman email dengan Resend langsung dari browser tidak diizinkan (CORS). Anda harus menjalankannya via localhost (npm run dev) atau menggunakan Serverless Function (seperti Vercel) untuk production.';
+        }
+        throw new Error(errorMessage);
       }
 
       setIsSubmitting(false);

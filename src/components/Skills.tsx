@@ -56,7 +56,14 @@ export default function Skills() {
       <div className="relative">
         <div className="overflow-hidden bg-brand-border">
           <motion.div 
-            className="flex gap-px"
+            className="flex gap-px cursor-grab active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset }) => {
+              if (offset.x < -50) next();
+              else if (offset.x > 50) prev();
+            }}
             animate={{ x: `-${currentIndex * (window.innerWidth < 768 ? 100 : 50)}%` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >

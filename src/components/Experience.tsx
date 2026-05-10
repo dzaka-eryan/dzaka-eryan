@@ -38,8 +38,15 @@ export default function Experience() {
       <div className="relative">
         <div className="overflow-hidden">
           <motion.div 
-            className="flex gap-6"
-            animate={{ x: `-${currentIndex * (100 / (window.innerWidth < 768 ? 1 : 2))}%` }}
+            className="flex gap-6 cursor-grab active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset }) => {
+              if (offset.x < -50) next();
+              else if (offset.x > 50) prev();
+            }}
+            animate={{ x: `-${currentIndex * (window.innerWidth < 768 ? 100 : 50)}%` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {experiences.map((exp, idx) => (

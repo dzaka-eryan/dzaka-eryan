@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-brand-border rounded-full scale-150 border-dashed animate-[spin_60s_linear_infinite]" />
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl flex flex-col items-center mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-4xl flex flex-col items-center mx-auto -mt-32 md:mt-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

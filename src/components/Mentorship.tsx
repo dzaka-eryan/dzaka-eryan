@@ -38,7 +38,7 @@ export default function Mentorship() {
             Terbuka untuk umum! Baik Anda mahasiswa yang sedang berjuang dengan Skripsi/Tugas Akhir, atau profesional yang ingin meningkatkan skill ke level Senior. Saya membantu Anda menguasai teknologi modern dengan pendekatan praktis.
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left mb-16">
             {features.map((f, i) => (
               <div key={i} className="flex gap-4">
                 <div className="mt-1">{f.icon}</div>
@@ -48,6 +48,28 @@ export default function Mentorship() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="bg-brand-muted/30 p-8 rounded-2xl border border-brand-border text-left">
+            <h3 className="text-xl font-bold mb-8 text-center text-white">Langkah Memulai</h3>
+            <div className="flex flex-col md:flex-row justify-between gap-6 relative">
+              {/* Connector line for desktop */}
+              <div className="hidden md:block absolute top-6 left-[15%] right-[15%] h-[2px] bg-brand-border z-0"></div>
+              
+              {[
+                { step: "1", title: "Isi Form", desc: "Jelaskan tujuan dan fokus belajar Anda melalui form singkat." },
+                { step: "2", title: "Follow-up Meet (Free)", desc: "Diskusi ringan (gratis) untuk menyamakan ekspektasi & jadwal." },
+                { step: "3", title: "Finish", desc: "Selesai! Mulai perjalanan bimbingan privat Anda." }
+              ].map((s, i) => (
+                <div key={i} className="flex-1 flex flex-col items-center text-center relative z-10">
+                  <div className="w-12 h-12 rounded-full bg-brand-bg border-2 border-brand-accent text-brand-accent shadow-[0_0_15px_rgba(0,229,255,0.2)] flex items-center justify-center font-black text-xl mb-4">
+                    {s.step}
+                  </div>
+                  <h4 className="font-bold text-white mb-2">{s.title}</h4>
+                  <p className="text-xs text-gray-400">{s.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16">
