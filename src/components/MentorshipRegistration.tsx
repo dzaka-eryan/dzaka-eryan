@@ -108,6 +108,62 @@ export default function MentorshipRegistration() {
             Amankan <span className="text-white font-medium">slot terakhir</span> Anda dengan mengisi formulir pendaftaran bimbingan di bawah ini.
           </p>
 
+          {/* Info Tarif */}
+          <div className="glass-card p-8 border-brand-accent/50 mb-12 text-center relative overflow-hidden group">
+             <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent"></div>
+             <h3 className="text-xs font-mono uppercase tracking-widest text-brand-accent mb-3">Investasi Pembelajaran</h3>
+             <div className="text-5xl md:text-6xl font-black text-white mb-3">Rp 200.000 <span className="text-lg text-gray-500 font-normal">/ sesi</span></div>
+             <p className="text-gray-400 text-sm">Sesi 1-on-1 intensif eksklusif.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {/* Tentang Saya Sebagai Mentor */}
+            <div className="glass-card p-8">
+              <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-accent mb-4">Tentang Saya Sebagai Mentor</h2>
+              <p className="text-sm text-gray-300 leading-relaxed font-light">
+                Sebagai praktisi industri dengan pengalaman 7+ tahun, saya fokus pada pemahaman konsep dasar (fundamental) hingga <i>best-practice</i> di dunia kerja nyata. Pendekatan saya bukan sekadar "menyuapi" kode, tapi melatih pola pikir Anda untuk memecahkan masalah kompleks layaknya <i>Senior Engineer</i>.
+              </p>
+            </div>
+            
+            {/* Tentang Kursus Ini */}
+            <div className="glass-card p-8">
+              <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-accent mb-4">Tentang Kursus Ini</h2>
+              <p className="text-sm text-gray-300 leading-relaxed font-light">
+                Program bimbingan privat 1-on-1 yang 100% disesuaikan dengan kebutuhan Anda. Materi bersifat fleksibel; mulai dari <i>debugging error</i> tugas akhir, <i>review architecture</i>, hingga pendampingan karir profesional. Anda bebas mengatur kecepatan belajar Anda sendiri.
+              </p>
+            </div>
+          </div>
+
+          {/* Ulasan */}
+          <div className="mb-16">
+            <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-accent mb-8">Ulasan Mentee</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="glass-card p-6 relative">
+                <div className="text-5xl text-brand-accent opacity-20 absolute top-4 right-4 font-serif">"</div>
+                <p className="text-sm text-gray-300 italic mb-6 leading-relaxed relative z-10">"Sangat membantu banget buat ngerjain project skripsi saya yang sempet mentok. Penjelasannya mudah dipahami dan ngasih insight arsitektur yang bener."</p>
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center font-bold text-brand-accent">R</div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Riyan</h4>
+                    <p className="text-[10px] text-gray-500 font-mono uppercase mt-0.5">Mentoring Project Skripsi</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="glass-card p-6 relative">
+                <div className="text-5xl text-brand-accent opacity-20 absolute top-4 right-4 font-serif">"</div>
+                <p className="text-sm text-gray-300 italic mb-6 leading-relaxed relative z-10">"Belajar Golang dan Kubernetes dari nol jadi gampang banget dipahami. Mas Dzaka ngajarin best practices yang bener-bener dipake di level production."</p>
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center font-bold text-brand-accent">A</div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Alfandi</h4>
+                    <p className="text-[10px] text-gray-500 font-mono uppercase mt-0.5">Belajar Golang & Kubernetes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Perks Section */}
           <div className="mb-16">
             <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-accent mb-8">Yang Akan Anda Dapatkan</h2>
