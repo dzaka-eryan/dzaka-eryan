@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronLeft, Send, BookOpen, GraduationCap, Code, Briefcase, Loader2 } from 'lucide-react';
 
 export default function MentorshipRegistration() {
+  // Ini fungsi wajib agar halaman dibaca dari atas
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -63,8 +68,8 @@ export default function MentorshipRegistration() {
   return (
     <div className="min-h-screen bg-brand-bg text-gray-200 py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 text-gray-500 hover:text-brand-accent transition-colors mb-12 group"
         >
           <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
@@ -110,10 +115,10 @@ export default function MentorshipRegistration() {
 
           {/* Info Tarif */}
           <div className="glass-card p-8 border-brand-accent/50 mb-12 text-center relative overflow-hidden group">
-             <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent"></div>
-             <h3 className="text-xs font-mono uppercase tracking-widest text-brand-accent mb-3">Investasi Pembelajaran</h3>
-             <div className="text-5xl md:text-6xl font-black text-white mb-3">Rp 200.000 <span className="text-lg text-gray-500 font-normal">/ sesi</span></div>
-             <p className="text-gray-400 text-sm">Sesi 1-on-1 intensif eksklusif.</p>
+            <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent"></div>
+            <h3 className="text-xs font-mono uppercase tracking-widest text-brand-accent mb-3">Investasi Pembelajaran</h3>
+            <div className="text-5xl md:text-6xl font-black text-white mb-3">Rp 200.000 <span className="text-lg text-gray-500 font-normal">/ sesi</span></div>
+            <p className="text-gray-400 text-sm">Sesi 1-on-1 intensif eksklusif.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
@@ -124,7 +129,7 @@ export default function MentorshipRegistration() {
                 Sebagai praktisi industri dengan pengalaman 7+ tahun, saya fokus pada pemahaman konsep dasar (fundamental) hingga <i>best-practice</i> di dunia kerja nyata. Pendekatan saya bukan sekadar "menyuapi" kode, tapi melatih pola pikir Anda untuk memecahkan masalah kompleks layaknya <i>Senior Engineer</i>.
               </p>
             </div>
-            
+
             {/* Tentang Kursus Ini */}
             <div className="glass-card p-8">
               <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-accent mb-4">Tentang Kursus Ini</h2>
@@ -149,7 +154,7 @@ export default function MentorshipRegistration() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="glass-card p-6 relative">
                 <div className="text-5xl text-brand-accent opacity-20 absolute top-4 right-4 font-serif">"</div>
                 <p className="text-sm text-gray-300 italic mb-6 leading-relaxed relative z-10">"Belajar Golang dan Kubernetes dari nol jadi gampang banget dipahami. Mas Dzaka ngajarin best practices yang bener-bener dipake di level production."</p>
@@ -191,9 +196,9 @@ export default function MentorshipRegistration() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500">Nama Lengkap</label>
-                <input 
+                <input
                   required
-                  type="text" 
+                  type="text"
                   placeholder="Dzaka Eryan"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -202,9 +207,9 @@ export default function MentorshipRegistration() {
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500">Email Utama</label>
-                <input 
+                <input
                   required
-                  type="email" 
+                  type="email"
                   placeholder="hello@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -223,18 +228,18 @@ export default function MentorshipRegistration() {
                   { id: 'general', label: 'Umum / Belajar Dasar', icon: <BookOpen size={18} /> },
                 ].map((type) => (
                   <label key={type.id} className={`relative flex items-center gap-4 p-4 glass-card cursor-pointer transition-all group ${formData.type === type.id ? 'border-brand-accent bg-brand-accent/5' : 'hover:border-brand-accent/50'}`}>
-                    <input 
+                    <input
                       required
-                      type="radio" 
-                      name="mentorship_type" 
-                      value={type.id} 
+                      type="radio"
+                      name="mentorship_type"
+                      value={type.id}
                       checked={formData.type === type.id}
                       onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      className="accent-brand-accent" 
+                      className="accent-brand-accent"
                     />
                     <div className="flex items-center gap-3">
-                       <span className={`transition-colors ${formData.type === type.id ? 'text-brand-accent' : 'text-gray-500 group-hover:text-brand-accent'}`}>{type.icon}</span>
-                       <span className="text-sm font-medium">{type.label}</span>
+                      <span className={`transition-colors ${formData.type === type.id ? 'text-brand-accent' : 'text-gray-500 group-hover:text-brand-accent'}`}>{type.icon}</span>
+                      <span className="text-sm font-medium">{type.label}</span>
                     </div>
                   </label>
                 ))}
@@ -243,7 +248,7 @@ export default function MentorshipRegistration() {
 
             <div className="space-y-2">
               <label className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500">Apa yang ingin Anda capai?</label>
-              <textarea 
+              <textarea
                 required
                 placeholder="Ceritakan sedikit tentang project atau kesulitan yang sedang Anda hadapi..."
                 rows={5}
@@ -253,7 +258,7 @@ export default function MentorshipRegistration() {
               ></textarea>
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-brand-accent text-brand-bg py-5 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3 hover:translate-y-[-4px] hover:shadow-[0_10px_40px_-10px_rgba(0,229,255,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
