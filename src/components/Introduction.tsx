@@ -19,7 +19,7 @@ export default function Introduction() {
             <img 
               src="/dzaka.png" 
               alt="Dzaka Eryan" 
-              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(0,229,255,0.3)]"
+              className="relative z-10 w-full h-full object-contain mix-blend-screen drop-shadow-[0_0_30px_rgba(0,229,255,0.3)]"
             />
           </div>
         </motion.div>
