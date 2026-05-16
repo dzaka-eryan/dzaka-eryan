@@ -20,7 +20,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
           <span className="text-[10px] md:text-sm font-mono uppercase tracking-[0.2em] text-gray-400">
-            Senior Software Engineer • 7+ Tahun Pengalaman
+            Senior Software Engineer • Backend Engineer • Cloud Architecture
           </span>
         </motion.div>
 
